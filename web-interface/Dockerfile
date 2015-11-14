@@ -15,7 +15,7 @@ ADD https://packages.graylog2.org/releases/graylog2-web-interface/graylog-web-in
 RUN tar -xzvf /tmp/graylog-web-interface.tgz -C /tmp
 RUN mv /tmp/graylog-web-interface-1.2.2 /usr/local/graylog && \
     rm /tmp/graylog-web-interface.tgz
-ADD bin/* /usr/local/graylog/bin
+ADD bin/* /usr/local/graylog/bin/
 ADD configuration/graylog.conf.template /usr/local/graylog/graylog.conf.template
 
 CMD ["/usr/local/graylog/bin/graylog-docker-wrapper.sh"]

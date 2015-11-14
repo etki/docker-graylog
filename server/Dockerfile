@@ -19,7 +19,7 @@ ADD https://packages.graylog2.org/releases/graylog2-server/graylog-1.2.2.tgz \
 RUN tar -xzvf /tmp/graylog-server.tgz -C /tmp \
     && mv /tmp/graylog-1.2.2 /usr/local/graylog \
     && rm /tmp/graylog-server.tgz
-ADD bin/* /usr/local/graylog/bin
+ADD bin/* /usr/local/graylog/bin/
 ADD configuration/graylog.conf.template /usr/local/graylog/graylog.conf.template
 
 CMD ["/usr/local/graylog/bin/graylog-docker-wrapper.sh"]
