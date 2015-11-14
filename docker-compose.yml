@@ -1,5 +1,5 @@
 elasticsearch:
-  image: elasticsearch:2.0
+  image: elasticsearch:1.7
 
 mongo:
   image: mongo:3.1
