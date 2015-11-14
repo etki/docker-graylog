@@ -1,0 +1,24 @@
+elasticsearch:
+  image: elasticsearch:2.0
+
+mongo:
+  image: mongo:3.1
+
+server:
+  image: etki/graylog-server
+  environment:
+    MONGODB_URI: mongodb://mongo:27017/test
+    ELASTICSEARCH_HOSTS: elasticsearch:9300
+    ELASTICSEARCH_CLUSTER_NAME: elasticsearch
+  links:
+    - mongo:mongo
+    - elasticsearch:elasticsearch
+
+web_interface:
+  image: etki/graylog-web-interface
+  links:
+    - server:server
+  environment:
+    GRAYLOG_SERVER_URI: http://server
+  ports:
+    - 8080:80
