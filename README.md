@@ -41,10 +41,19 @@ By the way, there's single-node docker-compose file included in
 [repository][repository] for those who want to just press-and-play (even though
 server container coughs on mongo dying faster than it).
 
-## Links
+#### Links
 
 * [etki/graylog-server][hub-server] / Docker Hub // [Documentation][server-readme] / GitHub
 * [etki/graylog-web-interface][hub-web-interface] / Docker Hub // [Documentation][web-interface-readme] / GitHub
+
+#### Licensing
+
+* [Graylog license][graylog-license]
+* [Elasticsearch license][elasticsearch-license]
+* [MongoDB license][mongodb-license]
+
+While formally this repository is covered by MIT license, you are free to do
+absolutely anything using my work.
 
   [graylog]: https://www.graylog.org
   [graylog-documentation]: https://docs.graylog.org
@@ -53,3 +62,6 @@ server container coughs on mongo dying faster than it).
   [server-readme]: https://github.com/etki/docker-graylog/blob/master/server/README.md
   [web-interface-readme]: https://github.com/etki/docker-graylog/blob/master/web-interface/README.md
   [repository]: https://github.com/etki/docker-graylog
+  [graylog-license]: https://github.com/Graylog2/graylog2-server/blob/master/COPYING
+  [elasticsearch-license]: https://github.com/elastic/elasticsearch/blob/master/LICENSE.txt
+  [mongodb-license]: https://www.mongodb.org/licensing
