@@ -12,7 +12,7 @@ environment variable. The most important configuration options are listed in
 following table:
 
 | Option                                           | Default value                  | Note |
-|--------------------------------------------------|--------------------------------||
+|--------------------------------------------------|--------------------------------|-|
 | `is_master`                                      | `true`                         | Whether this is node or master and is capable of processing cluster-wide tasks (it is implied that only one node in cluster may be master) |
 | `root_username`                                  | `admin`                        | Default user login |
 | `root_password_sha2`                             |                                | SHA-2 hash of password for default user. Calculated automatically (see *environment variables*) |
