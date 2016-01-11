@@ -5,7 +5,8 @@ mongo:
   image: mongo:3.1
 
 server:
-  image: etki/graylog2-server
+  #build: server
+  image: etki/graylog-server
   environment:
     GRAYLOG2_MONGODB_URI: mongodb://mongo:27017/test
     GRAYLOG2_ELASTICSEARCH_HOSTS: elasticsearch:9300
@@ -15,7 +16,8 @@ server:
     - elasticsearch:elasticsearch
 
 web_interface:
-  image: etki/graylog2-web-interface
+  #build: web-interface
+  image: etki/graylog-web-interface
   links:
     - server:server
   environment:

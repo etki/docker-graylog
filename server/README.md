@@ -11,12 +11,13 @@ be overriden by environmental variable with same name and `GRAYLOG2_` prefix, so
 environment variable. The most important configuration options are listed in
 following table:
 
-| Option | Default value | Note |
+| Option                                           | Default value                  | Note |
+|--------------------------------------------------|--------------------------------||
 | `is_master`                                      | `true`                         | Whether this is node or master and is capable of processing cluster-wide tasks (it is implied that only one node in cluster may be master) |
 | `root_username`                                  | `admin`                        | Default user login |
 | `root_password_sha2`                             |                                | SHA-2 hash of password for default user. Calculated automatically (see *environment variables*) |
 | `root_email`                                     |                                | Default user email |
-| `root_timezone`                                  | `UTC`                          || 
+| `root_timezone`                                  | `UTC`                          ||
 | `rest_enable_cors`                               | `false`                        | Whether to enable Cross-Origin Resource Sharing |
 | `rest_enable_gzip`                               | `false`                        | Whether to enable gzip compression |
 | `plugin_dir`                                     | `plugin`                       | Directory to store plugins, if you'll need any, most probably you're going to specify this dir as a persistent volume |
@@ -26,7 +27,7 @@ following table:
 | `transport_email_hostname`                       |                                ||
 | `transport_email_port`                           | `25`                           ||
 | `transport_email_use_auth`                       | `false`                        ||
-| `transport_email_use_tls`                        | `false`                        || 
+| `transport_email_use_tls`                        | `false`                        ||
 | `transport_email_use_ssl`                        | `true`                         ||
 | `transport_email_auth_username`                  |                                ||
 | `transport_email_auth_password`                  |                                ||
