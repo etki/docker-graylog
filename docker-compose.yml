@@ -1,26 +1,49 @@
-elasticsearch:
-  image: elasticsearch:1.7
+version: "2"
 
-mongo:
-  image: mongo:3.1
+volumes:
+  mongodata: {}
+  graylog_data: {}
+  graylog_config:  {}
+  graylog_web_config: {}
 
-server:
-  #build: server
-  image: etki/graylog-server
-  environment:
-    GRAYLOG2_MONGODB_URI: mongodb://mongo:27017/test
-    GRAYLOG2_ELASTICSEARCH_HOSTS: elasticsearch:9300
-    GRAYLOG2_ELASTICSEARCH_CLUSTER_NAME: elasticsearch
-  links:
-    - mongo:mongo
-    - elasticsearch:elasticsearch
+services:
+  elasticsearch:
+    image: elasticsearch:1.7
+    read_only: True
+    tmpfs:
+      - /tmp
 
-web_interface:
-  #build: web-interface
-  image: etki/graylog-web-interface
-  links:
-    - server:server
-  environment:
-    GRAYLOG2_SERVER_URI: http://server
-  ports:
-    - 8080:80
+  mongo:
+    image: mongo:3.1
+    volumes:
+      - mongodata:/data/db:rw
+    read_only: True
+    tmpfs:
+      - /tmp
+
+  server:
+    #build: server
+    image: etki/graylog-server
+    environment:
+      GRAYLOG2_MONGODB_URI: mongodb://mongo:27017/test
+      GRAYLOG2_ELASTICSEARCH_HOSTS: elasticsearch:9300
+      GRAYLOG2_ELASTICSEARCH_CLUSTER_NAME: elasticsearch
+    volumes:
+      - graylog_data:/data:rw
+      - graylog_config:/etc/graylog/server:rw
+    read_only: True
+    tmpfs:
+      - /tmp
+
+  web_interface:
+    #build: web-interface
+    image: etki/graylog-web-interface
+    environment:
+      GRAYLOG2_SERVER_URI: http://server
+    ports:
+      - 8080:80
+    volumes:
+      - graylog_web_config:/etc/graylog:rw
+    read_only: True
+    tmpfs:
+      - /tmp
