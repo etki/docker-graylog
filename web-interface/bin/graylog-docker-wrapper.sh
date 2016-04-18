@@ -28,4 +28,5 @@ exec java -Xmx$GRAYLOG2_JVM_HEAP_SIZE -Xms$GRAYLOG2_JVM_HEAP_SIZE \
     -XX:ReservedCodeCacheSize=128m \
     -Duser.dir=$GRAYLOG2_DIRECTORY -Dconfig.file=/etc/graylog/web-interface.conf \
     -Dhttp.address=$GRAYLOG2_HTTP_ADDRESS -Dhttp.port=$GRAYLOG2_HTTP_PORT \
+    -Dpidfile.path=/tmp/graylogweb.pid \
     -cp $GRAYLOG2_CLASSPATH play.core.server.NettyServer
